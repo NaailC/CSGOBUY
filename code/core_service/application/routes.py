@@ -5,7 +5,7 @@ from requests import get
 ip = get('https://api.ipify.org/').text
 url = 'http://'+ip
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def home():
     weapon = generate_weapon()
     strat = generate_strat()

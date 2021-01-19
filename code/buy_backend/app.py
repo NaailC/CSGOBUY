@@ -2,6 +2,8 @@ from application import app
 from flask import request, Flask, jsonify
 import random
 
+app = Flask(__name__)
+
 @app.route('/get/buy', methods=['GET'])
 def get_buy():
     x = ['ak/m4', 
@@ -24,3 +26,7 @@ def get_buystrength():
         'SG/AUG' : 85,
         'Autosniper' : 50}
     return jsonify(buystrength[x], mimetype='plain/text')
+
+# Run on current host
+if __name__ == "__main__":
+    app.run(debug = True, host = "0.0.0.0", port=5001)

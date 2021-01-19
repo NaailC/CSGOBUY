@@ -1,6 +1,8 @@
-from application import app
+from application import app, routes
 from flask import Flask, request, jsonify
 import random
+
+app = Flask(__name__)
 
 @app.route('/get/strat', methods=['GET'])
 def get_tstrat():
@@ -17,7 +19,7 @@ def get_tstrat():
     elif choice == timeb:
         return str('Push B at', timeb, 'seconds')
     else:
-        return choice 
+        return str(choice) 
 
 @app.route('/get/stratstrength', methods=['GET'])
 def get_tstratstrength():
@@ -27,3 +29,7 @@ def get_tstratstrength():
         timea : 80,
         timeb : 70}
     return jsonify(stratstrength[choice], mimetype='plain/text')
+
+    # Run on current host
+if __name__ == "__main__":
+    app.run(debug = True, host = "0.0.0.0", port=5002)
