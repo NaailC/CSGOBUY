@@ -21,7 +21,3 @@ def generate_strat():
     response = requests.get(url+':5002/get/strat')
     return str(response.text) 
 
-@app.route('/roundstrength')
-def generate_roundstrength():
-    response = requests.get(url':5003/get/roundstrength')
-    return str(response.text) 
