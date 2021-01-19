@@ -1,6 +1,6 @@
 from application import app
-from flask import Flask, requests, redirect, url_for, render_template
-from requests import get
+from flask import Flask, request, redirect, url_for, render_template
+from request import get
 
 ip = get('https://api.ipify.org/').text
 url = 'http://'+ip
