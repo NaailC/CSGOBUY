@@ -1,0 +1,38 @@
+version: "3.8"
+services: 
+  
+  nginx:
+      image: nginx:alpine
+      ports: 
+      - target: 80
+        protocol: tcp
+      volumes:
+      - type: bind
+        source: ./nginx/nginx/conf
+        target: etc/nginx/nginx/conf
+  
+  core-service:
+    container_name: frontend
+    build: ./core-service
+    image: core-service:latest
+    ports:
+    - target: 5100
+      published: 5100 
+
+  buy_backend:
+    container_name: buy_backend
+    build: ./buy_backend
+    image: buy_backend:latest
+    ports:
+      - target: 5001
+        published: 5001
+        protocol: tcp
+  
+  strat_backend:
+    container_name: strat_backend
+    build: ./strat_backend
+    image: strat_backend:latest
+    ports:
+      - target: 5002
+        published: 5002
+        protocol: tcp
