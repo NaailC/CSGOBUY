@@ -2,6 +2,6 @@ from flask import Flask
 
 app = Flask(__name__)
 
-from applicaiton import routes
+import routes
 
 
