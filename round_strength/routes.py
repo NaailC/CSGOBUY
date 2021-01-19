@@ -5,6 +5,6 @@ from strat_backend import routes
 
 @app.route('/roundstrength', methods=['GET'])
 def get_roundstrength():
-    weaponstrength = 
-    roundstrength = 
+    weaponstrength = 1
+    roundstrength = 1
     return ((weaponstrength + roundstrength)/2)
