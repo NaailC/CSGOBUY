@@ -9,7 +9,9 @@ pipeline{
                 steps{
                     script{
                         if (env.rollback == 'false'){
-                            image = docker.build("naailc/CSGOBG")
+                            core_service_image = docker.build("naailc/core_service", 'core_service')
+                            buy_backend_image = docker.build("naailc/buy_backend", 'buy_backend')
+                            strat_backend_image = docker.build("naailc/strat_backend", 'strat_backend')
                         }
                     }
                 }
