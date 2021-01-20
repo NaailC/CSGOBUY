@@ -15,7 +15,7 @@ def get_buy():
     'Autosniper']
     return Response(str(random.choice(x)), mimetype='text/plain')
 
-@app.route('/get/buystrength', methods['GET'])
+@app.route('/post/text', methods['POST'])
 def get_buystrength():
     x = request.data.decode('utf-8')
     buystrength = {'ak/m4' : 100,

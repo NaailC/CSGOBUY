@@ -5,9 +5,9 @@ from strat_backend import routes
 
 @app.route('/roundstrength', methods=['GET'])
 def get_roundstrength():
-    weaponstrength = 
-    roundstrength = 1
-    return ((weaponstrength + roundstrength)/2)
+    data = request.get_json()
+    roundstrength = ((data['buystrength'].values() + data['stratstrength'].values()) /2)
+    return str(roundstrength+'%')
 # Run on current host
 if __name__ == "__main__":
     app.run(debug = True, host = "0.0.0.0", port=5003)
