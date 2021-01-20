@@ -8,7 +8,7 @@ from requests import get
 def home():
     weapon_response = requests.get('http://CSGO-code-buy_backend:5001/get/buy')
     strat_response = requests.get('http://CSGO-code-strat_backend:5002/get/strat')
-    roundstrength_response = requests.post('http://CSGO-code-round_strength:5003/post', json={'buystrength' : weapon_response.json['x'], 'stratstrength' : strat_response.json['strat']}
+    roundstrength_response = requests.post('http://CSGO-code-round_strength:5003/post', json={'buystrength' : weapon_response.json['x'], 'stratstrength' : strat_response.json['strat']})
     return render_template('home.html', weapon=weapon_response.text, strat=strat_response.text, roundstrength=roundstrength_response.text)
 
 

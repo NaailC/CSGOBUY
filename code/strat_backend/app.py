@@ -21,14 +21,14 @@ def get_tstrat():
     else:
         return str(choice) 
 
-@app.route('/get/stratstrength', methods=['GET'])
+@app.route('/post', methods=['POST'])
 def get_tstratstrength():
     choice = request.data.decode('utf-8')
     stratstrength = {'Rush A' : 50, 
         'Rush B' : 60,
         timea : 80,
         timeb : 70}
-    return jsonify(stratstrength[choice], mimetype='plain/text')
+    return jsonify(stratstrength[choice])
 
     # Run on current host
 if __name__ == "__main__":

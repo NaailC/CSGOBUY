@@ -1,5 +1,5 @@
 from application import app
-from flask import request, Flask, jsonify
+from flask import request, Flask, jsonify, Response
 import random
 
 app = Flask(__name__)
@@ -15,9 +15,8 @@ def get_buy():
     'Autosniper']
     return Response(str(random.choice(x)), mimetype='text/plain')
 
-@app.route('/post/text', methods['POST'])
+@app.route('/post/', methods['POST'])
 def get_buystrength():
-    x = request.data.decode('utf-8')
     buystrength = {'ak/m4' : 100,
         'galil/famas' : 75,
         'm249' : 20,
@@ -25,7 +24,8 @@ def get_buystrength():
         'p90' : 60,
         'SG/AUG' : 85,
         'Autosniper' : 50}
-    return jsonify(buystrength[x], mimetype='plain/text')
+    x = request.data.decode('utf-8')
+    return jsonify(buystrength[x])
 
 # Run on current host
 if __name__ == "__main__":
