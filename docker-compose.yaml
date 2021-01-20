@@ -8,12 +8,12 @@ services:
         protocol: tcp
       volumes:
       - type: bind
-        source: ./nginx/nginx/conf
+        source: ./nginx/nginx/nginx.conf
         target: etc/nginx/nginx/conf
   
   core-service:
     container_name: frontend
-    build: /code/core_service
+    build: ./code/core_service
     image: core-service:latest
     ports:
     - target: 5000
@@ -21,7 +21,7 @@ services:
 
   buy_backend:
     container_name: buy_backend
-    build: /code/buy_backend
+    build: ./code/buy_backend
     image: buy_backend:latest
     ports:
       - target: 5001
@@ -30,7 +30,7 @@ services:
   
   strat_backend:
     container_name: strat_backend
-    build: /code/strat_backend
+    build: ./code/strat_backend
     image: strat_backend:latest
     ports:
       - target: 5002
@@ -39,7 +39,7 @@ services:
   
   round_strength:
     container_name: round_strength
-    build: /code/round_strength
+    build: ./code/round_strength
     image: round_strength:latest
     ports:
       - target: 5003
