@@ -1,15 +1,15 @@
-from core_service import app 
-from flask import Flask, request, jsonify
-from buy_backend import app
-from strat_backend import routes
+from flask import Flask, request, jsonify, Response
 
-@app.route('/roundstrength', methods=['POST'])
+app = Flask(__name__)
+
+
+@app.route('/post/roundstrength', methods=['POST'])
 def get_roundstrength():
-    data = request.json()
+    data = request.json
     weapon = data['buystrength']
     strat = data['stratstrength']
-    roundstrength = ((weapon.values() + strat.values()) /2)
-    return str('your round power is', roundstrength, '%')
+    roundstrength = ((int(weapon) + int(strat)) /2)
+    return Response(str(roundstrength), mimetype='plain/text')
 
 if __name__ == "__main__":
     app.run(debug = True, host = "0.0.0.0", port=5003)

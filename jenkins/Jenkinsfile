@@ -5,24 +5,32 @@ pipeline{
             rollback = 'true'
         }
         stages{
-            stage('Build Image'){
+            stage('Testing'){
                 steps{
                     script{
                         if (env.rollback == 'false'){
-                            core_service_image = docker.build("naailc/core_service", 'core_service')
-                            buy_backend_image = docker.build("naailc/buy_backend", 'buy_backend')
-                            strat_backend_image = docker.build("naailc/strat_backend", 'strat_backend')
+                            sh 'bash jenkins/shell-script/test.sh'
                         }
                     }
                 }
             }
-            stage('Tag & Push Image'){
+            stage('Build + Push'){
                 steps{
                     script{
                         if (env.rollback == 'false'){
-                            docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials'){
-                                image.push("${env.app_version}")
-                            }
+                            sh 'bash jenkins/script/compose.sh'                            
+                        }
+                    }
+                }
+            
+            
+            stage('config management'){
+                steps{
+                    script{
+                        if (env.rollback == 'false'){
+                            // ansible
+                            // docker & jenkins login
+                            
                         }
                     }
                 }

@@ -1,11 +1,17 @@
 import random
 
+
 # Service 2
 
 def buy():
-    x = ['ak/m4', 'galil/famas', 'm249', 'AWP', 'p90', 'SSG/AUG', 'Autosniper']
-
-    return random.choice(x) 
+    x = {'ak/m4' : 100,
+        'galil/famas' : 75,
+        'm249' : 20,
+        'AWP' : 80,
+        'p90' : 60,
+        'SG/AUG' : 85,
+        'Autosniper' : 50}
+    buystrength = random.sample(list(x.values))
 
 def eco():
     x = ['57/Tec9', 'P250', 'Dualies', 'Negev', 'Mag7','Scout', 'Sawed-off', 'Bizon', 'UMP-45', 'MP7', 'MP9/Mac10', 'MP5', 'Deagle']
@@ -31,4 +37,4 @@ def t():
     else:
         return choice 
 
-print(buy(), eco(), ct(), t())
+print(buy())
