@@ -11,7 +11,8 @@ def home():
     strat_response = requests.get('http://strat_backend:5002/get/strat')
     stratstrength_response = requests.post('http://strat_backend:5002/post/stratstrength', data=strat_response.text)
     roundstrength_response = requests.post('http://round_strength:5003/post/roundstrength', json={'buystrength' : buystrength_response.text, 'stratstrength' : stratstrength_response.text})
-    return render_template('home.html', weapon=weapon_response.text, strat=strat_response.text, roundstrength=roundstrength_response.text)
+    
+    return render_template('home.html', weapon=weapon_response.text, strat=strat_response.text, roundstrength=roundstrength_response.text, show=show)
 
 
 

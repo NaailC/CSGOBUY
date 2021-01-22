@@ -9,4 +9,3 @@ class TestBase(TestCase):
         return app
 
 class TestResponse(TestBase):
-    

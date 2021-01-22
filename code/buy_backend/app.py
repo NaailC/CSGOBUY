@@ -5,23 +5,23 @@ app = Flask(__name__)
 
 @app.route('/get/buy', methods=['GET'])
 def get_buy():
-    x = ['ak/m4', 
-    'galil/famas', 
+    x = ['AK', 
+    'Galil', 
     'm249', 
     'AWP', 
     'p90', 
-    'SSG/AUG', 
+    'SG', 
     'Autosniper']
     return Response(str(random.choice(x)), mimetype='text/plain')
 
 @app.route('/post/buystrength', methods=['POST'])
 def get_buystrength():
-    buystrength = {'ak/m4' : 100,
-        'galil/famas' : 75,
+    buystrength = {'AK' : 100,
+        'Galil' : 75,
         'm249' : 20,
         'AWP' : 80,
         'p90' : 60,
-        'SG/AUG' : 85,
+        'SG' : 85,
         'Autosniper' : 50}
     x = request.data.decode('utf-8')
     return Response(str(buystrength[x]), mimetype='text/plain')

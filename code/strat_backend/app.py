@@ -1,33 +1,34 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, Response
 import random
 
 app = Flask(__name__)
 
+timea = random.randint(20,105)
+timeb = random.randint(20,105)
+
 @app.route('/get/strat', methods=['GET'])
 def get_tstrat():
-    timea = random.randint(20,105)
-    timeb = random.randint(20,105)
+    
     strat = ['Rush A',
         'Rush B',
         timea,
         timeb]
     choice = random.choice(strat)
     if choice == timea:
-        return str('Push A at', timea, 'seconds')
+        return Response(f'Push A at {timea} seconds', mimetype='plain/text')
     elif choice == timeb:
-        return str('Push B at', timeb, 'seconds')
+        return Response(f'Push B at {timeb} seconds', mimetype='plain/text')
     else:
-        return str(choice) 
+        return Response(f'{choice}', mimetype='plain/text')
 
 @app.route('/post/stratstrength', methods=['POST'])
 def get_tstratstrength():
     choice = request.data.decode('utf-8')
     stratstrength = {'Rush A' : 50, 
         'Rush B' : 60,
-        timea : 80,
-        timeb : 70}
-    return Response(str(stratstrength[choice]), mimetype='text/plain')
-
+        f'Push A at {timea} seconds' : 80,
+        f'Push B at {timeb} seconds' : 70}
+    return Response(str(stratstrength[choice]), mimetype='plain/text')
     # Run on current host
 if __name__ == "__main__":
     app.run(debug = True, host = "0.0.0.0", port=5002)
