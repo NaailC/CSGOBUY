@@ -11,7 +11,9 @@ services:
       protocol: tcp
     environment:
       DATABASE_URI: ${DATABASE_URI}
-      app_version: 1
+      app_version: ${APP_VERSION}
+    deploy:
+      replicas: ${replicas}
 
   buy_backend:
     container_name: buy_backend

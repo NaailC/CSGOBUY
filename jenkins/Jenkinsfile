@@ -1,9 +1,10 @@
 pipeline{
     agent any
     environment{
-        DATABASE_URI = 'sqlite:///site.db'
-        app_version = 'v1'
+        DATABASE_URI = credentials("DATABASE_URI")
         rollback = 'false'
+        replicas = 10
+        app_version = '1.0'
     }
     stages{
         stage("Testing"){
@@ -28,7 +29,7 @@ pipeline{
         }
         stage("Config Management (ansible)"){
             steps{
-                sh "sudo su jenkins cd ansible && /home/jenkins/.local/bin/ansible-playbook -i inventory playbook.yaml"
+                sh "sudo su jenkins cd ansible && /home/jenkins/bin/ansible-playbook -i inventory playbook.yaml"
             }
         }
         stage("Deploy"){
