@@ -4,7 +4,6 @@ pipeline{
         DATABASE_URI = 'sqlite:///site.db'
         app_version = 'v1'
         rollback = 'false'
-        docker_creds = credentials('docker-hub-credentials')
     }
     stages{
         stage("Testing"){
