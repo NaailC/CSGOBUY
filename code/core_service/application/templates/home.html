@@ -9,4 +9,9 @@ Your power-level is {{ roundstrength }}%
 </p>
 <br>Last 5 Generates
 
-{{ show }}
+<p>
+    {% for buy in show %}
+    {{ buy.weapon }} and {{ buy.strat }} - power-level {{ buy.roundstrength }}
+    <br>
+    {% endfor %} 
+</p>

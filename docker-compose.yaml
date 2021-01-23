@@ -1,23 +1,17 @@
 version: "3.8"
 services: 
 
-  nginx:
-      image: nginx:alpine
-      ports: 
-      - target: 80
-        protocol: tcp
-      volumes:
-      - type: bind
-        source: ./nginx/nginx/nginx.conf
-        target: etc/nginx/nginx/conf
-
   core-service:
     container_name: frontend
     build: ./code/core_service
     image: core-service:latest
     ports:
     - target: 5000
-      published: 5000 
+      published: 80
+      protocol: tcp
+    environment:
+      DATABASE_URI: ${DATABASE_URI}
+      app_version: 1
 
   buy_backend:
     container_name: buy_backend

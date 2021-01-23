@@ -20,9 +20,10 @@ ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 ansible_ssh_private_key_file=~/jenkins_agent_key
 ansible_python_interpreter=/usr/bin/python3
 
+
 [nginx:vars]
 
-ansible_user=naailchoudhury
+ansible_user=jenkins
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 ansible_ssh_private_key_file=~/jenkins_agent_key
 ansible_python_interpreter=/usr/bin/python3

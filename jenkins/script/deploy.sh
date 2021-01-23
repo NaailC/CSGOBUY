@@ -1,6 +1,6 @@
 #!/bin/bash
-scp -i ~/ansible_id_rsa docker-compose.yaml jenkins@swarm-master:/home/jenkins/docker-compose.yaml
-ssh -i ~/ansible_id_rsa jenkins@swarm-master << EOF
-    export DATABASE_URI=${DATABASE_URI} app_version=${app_version} replicas=${replicas}
+scp -i ~/jenkins_agent_key docker-compose.yaml jenkins@swarm-master:/home/jenkins/docker-compose.yaml
+ssh -i ~/jenkins_agent_key jenkins@swarm-master << EOF
+    export DATABASE_URI=${DATABASE_URI} app_version=${app_version} 
     docker stack deploy --compose-file /home/jenkins/docker-compose.yaml CSGOBUY
 EOF
