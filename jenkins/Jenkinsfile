@@ -1,34 +1,40 @@
 pipeline{
-        agent any
-        environment {
-            app_version = 'v1'
-            rollback = 'true'
-        }
-        stages{
-            stage('Build Image'){
-                steps{
-                    script{
-                        if (env.rollback == 'false'){
-                            image = docker.build("naailc/CSGOBG")
-                        }
+    agent any
+    environment{
+        DATABASE_URI = credentials("DATABASE_URI")
+        app_version = 'v1'
+        rollback = 'false'
+        replicas = 10
+    }
+    stages{
+        stage("Testing"){
+            steps{
+                script{
+                    if (env.rollback == 'false') {
+                        sh "bash jenkins/test.sh"
                     }
                 }
             }
-            stage('Tag & Push Image'){
-                steps{
-                    script{
-                        if (env.rollback == 'false'){
-                            docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials'){
-                                image.push("${env.app_version}")
-                            }
-                        }
+        }
+        stage("Build & Push"){
+            steps{
+                script{
+                    if (env.rollback == 'false') {
+                        sh "docker-compose build --parallel --build-arg APP_VERSION=${app_version} && docker-compose push"
+                        sh "docker system prune -af"
                     }
                 }
             }
-            stage('Deploy App'){
-                steps{
-                    sh "docker-compose pull && docker-compose up -d"
-                }
+        }
+        stage("Config Management (ansible)"){
+            steps{
+                sh "cd ansible && /home/jenkins/.local/bin/ansible-playbook -i inventory playbook.yaml"
             }
         }
+        stage("Deploy"){
+            steps{
+                sh "bash jenkins/script/deploy.sh"
+            }
+        }
+    }
 }
