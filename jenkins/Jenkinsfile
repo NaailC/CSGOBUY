@@ -15,7 +15,7 @@ pipeline{
         
         stage("Build & Push"){
             steps{
-                    sh "docker-compose up --build"
+                    sh "docker-compose up --build -d"
                     sh "docker-compose down"
                     sh "docker-compose push"
                     sh "docker system prune -af"
