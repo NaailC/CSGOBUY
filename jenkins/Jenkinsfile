@@ -15,7 +15,8 @@ pipeline{
         
         stage("Build & Push"){
             steps{
-                    sh "docker-compose build --parallel"
+                    sh "docker-compose up --build"
+                    sh "docker-compose down"
                     sh "docker-compose push"
                     sh "docker system prune -af"
                     }
