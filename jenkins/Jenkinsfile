@@ -2,31 +2,24 @@ pipeline{
     agent any
     environment{
         DATABASE_URI = credentials("DATABASE_URI")
-        rollback = 'false'
         replicas = 10
         app_version = '1.0'
     }
     stages{
         stage("Testing"){
             steps{
-                script{
-                    if (env.rollback == 'false') {
-                        sh "bash jenkins/script/test.sh"
-                    }
+                sh "bash jenkins/script/test.sh"
                 }
             }
-        }
+        
         stage("Build & Push"){
             steps{
-                script{
-                    if (env.rollback == 'false') {
-                        sh 'docker login'
-                        sh "docker-compose build --parallel --build-arg APP_VERSION=${app_version} && docker-compose push"
-                        sh "docker system prune -af"
+                    sh "docker-compose build --parallel && docker-compose push"
+                    sh "docker system prune -af"
                     }
                 }
-            }
-        }
+            
+        
         stage("Config Management (ansible)"){
             steps{
                 sh "sudo su jenkins cd ansible && /home/jenkins/bin/ansible-playbook -i inventory playbook.yaml"

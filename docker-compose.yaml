@@ -1,10 +1,10 @@
 version: "3.8"
 services: 
 
-  core-service:
-    container_name: frontend
+  core_service:
+    container_name: core_service
     build: ./code/core_service
-    image: core-service:latest
+    image: core_service:latest
     ports:
     - target: 5000
       published: 80

@@ -32,3 +32,14 @@ class TestResponse(TestBase):
             response = self.client.get(url_for('home'))
             self.assertIn(b'buy AK and Rush A', response.data)
             self.assertIn(b'testweapon and teststrat - power-level testp', response.data)
+
+    def test_P90(self):
+        with requests_mock.mock() as m:
+            m.get('http://CSGOBUY-buy_backend:5001/get/buy', text='p90')
+            m.post('http://CSGOBUY-buy_backend:5001/post/buystrength', text='60') 
+            m.get('http://CSGOBUY-strat_backend:5002/get/strat', text='Rush B')
+            m.post('http://CSGOBUY-strat_backend:5002/post/stratstrength', text='60')
+            m.post('http://CSGOBUY-round_strength:5003/post/roundstrength', text='60')
+            response = self.client.get(url_for('home'))
+            self.assertIn(b'buy p90 and Rush B', response.data)
+            self.assertIn(b'testweapon and teststrat - power-level testp', response.data)
