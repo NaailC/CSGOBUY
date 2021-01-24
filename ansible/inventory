@@ -5,7 +5,7 @@ swarm-manager
 swarm-worker
 swarm-worker2
 
-[nginx]
+[nginx-manager]
 nginx
 
 [managers:vars]
