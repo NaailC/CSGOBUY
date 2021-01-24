@@ -19,7 +19,7 @@ python3 -m venv venv
 source venv/bin/activate
 pip3 install -r requirements.txt
 pip3 install pytest pytest-cov flask_testing requests_mock
-python3 -m pytest --cov=application --cov-report xml --cov-report term-missing --junitxml junit.xml
+python3 -m pytest --cov=app --cov-report xml --cov-report term-missing --junitxml junit.xml
 deactivate
 cd ..
 cd ..
@@ -29,7 +29,7 @@ python3 -m venv venv
 source venv/bin/activate
 pip3 install -r requirements.txt
 pip3 install pytest pytest-cov flask_testing requests_mock
-python3 -m pytest --cov=application --cov-report xml --cov-report term-missing --junitxml junit.xml
+python3 -m pytest --cov=app --cov-report xml --cov-report term-missing --junitxml junit.xml
 deactivate
 cd ..
 cd ..
@@ -39,7 +39,7 @@ python3 -m venv venv
 source venv/bin/activate
 pip3 install -r requirements.txt
 pip3 install pytest pytest-cov flask_testing requests_mock
-python3 -m pytest --cov=application --cov-report xml --cov-report term-missing --junitxml junit.xml
+python3 -m pytest --cov=app --cov-report xml --cov-report term-missing --junitxml junit.xml
 deactivate
 cd ..
 cd ..
