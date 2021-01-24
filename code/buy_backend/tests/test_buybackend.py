@@ -1,9 +1,8 @@
 from flask_testing import TestCase
 from unittest.mock import patch
-from flask import url_for, response
+from flask import url_for
 from random import choice
-import requests.mock
-from buy_backend import app
+from app import app
 
 
 class TestBase(TestCase):
@@ -23,3 +22,9 @@ class TestResponse(TestBase):
             random.return_value = 'p90'
             response = self.client.get(url_for('get_buy'))
             self.assertEquals(b'p90', response.data)
+
+    def test_get_buy3(self):
+        with patch('random.choice') as random:
+            random.return_value = 'SG'
+            response = self.client.get(url_for('get_buy'))
+            self.assertEquals(b'SG', response.data)

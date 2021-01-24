@@ -30,7 +30,7 @@ class TestResponse(TestBase):
             m.post('http://CSGOBUY-strat_backend:5002/post/stratstrength', text='50')
             m.post('http://CSGOBUY-round_strength:5003/post/roundstrength', text='75')
             response = self.client.get(url_for('home'))
-            self.assertIn(b'buy AK and Rush A', response.data)
+            self.assertIn(b'Buy AK and Rush A', response.data)
             self.assertIn(b'testweapon and teststrat - power-level testp', response.data)
 
     def test_P90(self):
@@ -41,5 +41,5 @@ class TestResponse(TestBase):
             m.post('http://CSGOBUY-strat_backend:5002/post/stratstrength', text='60')
             m.post('http://CSGOBUY-round_strength:5003/post/roundstrength', text='60')
             response = self.client.get(url_for('home'))
-            self.assertIn(b'buy p90 and Rush B', response.data)
+            self.assertIn(b'Buy p90 and Rush B', response.data)
             self.assertIn(b'testweapon and teststrat - power-level testp', response.data)

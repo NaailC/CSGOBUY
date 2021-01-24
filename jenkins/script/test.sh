@@ -11,6 +11,7 @@ pip3 install pytest pytest-cov flask_testing requests_mock
 python3 -m pytest --cov=application --cov-report xml --cov-report term-missing --junitxml junit.xml
 deactivate
 cd ..
+cd ..
 
 
 cd code/buy_backend
@@ -21,6 +22,7 @@ pip3 install pytest pytest-cov flask_testing requests_mock
 python3 -m pytest --cov=application --cov-report xml --cov-report term-missing --junitxml junit.xml
 deactivate
 cd ..
+cd ..
 
 cd code/strat_backend
 python3 -m venv venv
@@ -30,6 +32,7 @@ pip3 install pytest pytest-cov flask_testing requests_mock
 python3 -m pytest --cov=application --cov-report xml --cov-report term-missing --junitxml junit.xml
 deactivate
 cd ..
+cd ..
 
 cd code/round_strength
 python3 -m venv venv
@@ -38,4 +41,5 @@ pip3 install -r requirements.txt
 pip3 install pytest pytest-cov flask_testing requests_mock
 python3 -m pytest --cov=application --cov-report xml --cov-report term-missing --junitxml junit.xml
 deactivate
+cd ..
 cd ..
