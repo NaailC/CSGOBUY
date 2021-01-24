@@ -2,7 +2,7 @@ pipeline{
     agent any
     environment{
         DATABASE_URI = credentials("DATABASE_URI")
-        docker-hub-credentials = credentials('docker-hub-credentials')
+        docker-hub-credentials = credentials("docker-hub-credentials")
         replicas = 10
         app_version = '1.0'
     //}
