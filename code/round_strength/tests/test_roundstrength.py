@@ -24,3 +24,8 @@ class TestResponse(TestBase):
         response = self.client.post(url_for('get_roundstrength'), json={"buystrength" : 50, "stratstrength" : 100})
         print(response)
         self.assertIn(b'75.0', response.data)
+
+    def test_roundstrength3(self):
+        response = self.client.post(url_for('get_roundstrength'), json={"buystrength" : 100, "stratstrength" : 100})
+        print(response)
+        self.assertIn(b'100.0', response.data)
