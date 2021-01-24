@@ -13,7 +13,25 @@ deactivate
 cd ..
 
 
-cd tests
+cd code/buy_backend
+python3 -m venv venv
+source venv/bin/activate
+pip3 install -r requirements.txt
+pip3 install pytest pytest-cov flask_testing requests_mock
+python3 -m pytest --cov=application --cov-report xml --cov-report term-missing --junitxml junit.xml
+deactivate
+cd ..
+
+cd code/strat_backend
+python3 -m venv venv
+source venv/bin/activate
+pip3 install -r requirements.txt
+pip3 install pytest pytest-cov flask_testing requests_mock
+python3 -m pytest --cov=application --cov-report xml --cov-report term-missing --junitxml junit.xml
+deactivate
+cd ..
+
+cd code/round_strength
 python3 -m venv venv
 source venv/bin/activate
 pip3 install -r requirements.txt

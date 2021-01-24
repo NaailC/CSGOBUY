@@ -2,6 +2,7 @@ from flask_testing import TestCase
 from unittest.mock import patch
 from flask import url_for
 from random import  choice
+from strat_backend import app
 
 class TestBase(TestCase):
     def create_app(self):

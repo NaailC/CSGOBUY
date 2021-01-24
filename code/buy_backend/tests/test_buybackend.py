@@ -3,6 +3,7 @@ from unittest.mock import patch
 from flask import url_for, response
 from random import choice
 import requests.mock
+from buy_backend import app
 
 
 class TestBase(TestCase):
