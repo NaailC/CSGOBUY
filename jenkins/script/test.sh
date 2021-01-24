@@ -1,7 +1,7 @@
 #!/bin/bash
 
-sudo apt-get update
-sudo apt-get install -y python3-venv python3-pip
+apt-get update
+apt-get install -y python3-venv python3-pip
 
 cd code/core_service
 python3 -m venv venv
