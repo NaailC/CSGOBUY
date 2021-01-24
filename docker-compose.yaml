@@ -13,7 +13,7 @@ services:
       DATABASE_URI: ${DATABASE_URI}
   
   buy_backend:
-    # container_name: buy_backend
+    # container_name: buy_backend1
     build: ./code/buy_backend
     image: naailc/buy_backend:latest
     ports:
