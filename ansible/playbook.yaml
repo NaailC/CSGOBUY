@@ -1,7 +1,7 @@
 ---
   - name: Setup nginx
     become: true
-    hosts: nginx-manager
+    hosts: nginxmanager
     roles:
       - nginx
   - name: Init docker swarm 
