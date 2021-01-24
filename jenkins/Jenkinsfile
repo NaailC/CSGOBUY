@@ -5,7 +5,7 @@ pipeline{
         docker-hub-credentials = credentials('docker-hub-credentials')
         replicas = 10
         app_version = '1.0'
-    }
+    //}
     // stages{
         //stage("Testing"){
             //steps{
