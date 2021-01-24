@@ -8,6 +8,7 @@
 - name: Init a new swarm 
   community.general.docker_swarm:
     state:  present
+    
 - name: Get the worker node join token
   community.general.docker_swarm:
   register: swarm_info 

@@ -1,20 +1,18 @@
-- name: setup nginx
-  become: true
-  hosts: nginx
-  roles:
-    - nginx
-
-- name: initialize docker swarm
-  become: true
-  hosts: managers
-  roles:
-    - swarm_init
-    - docker
-
-- name: add workers to swarm 
-  hosts: workers
-  become: true 
-  roles:
-    - swarm-worker
-    - swarm-worker2
-    - docker
+---
+  - name: Setup nginx load balancer
+    become: true
+    hosts: nginx
+    roles:
+      - nginx
+  - name: Init docker swarm 
+    become: true
+    hosts: managers
+    roles:
+      - docker
+      - swarm_init
+  - name: Add workers to swarm
+    become: true
+    hosts: workers
+    roles:
+      - docker
+      - swarm_worker

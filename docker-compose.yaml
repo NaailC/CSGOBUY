@@ -2,7 +2,7 @@ version: "3.8"
 services: 
 
   core_service:
-    container_name: core_service
+    # container_name: core_service
     build: ./code/core_service
     image: naailc/core_service:latest
     ports:
@@ -11,11 +11,9 @@ services:
       protocol: tcp
     environment:
       DATABASE_URI: ${DATABASE_URI}
-    deploy:
-      replicas: ${replicas}
-
+  
   buy_backend:
-    container_name: buy_backend
+    # container_name: buy_backend
     build: ./code/buy_backend
     image: naailc/buy_backend:latest
     ports:
@@ -24,7 +22,7 @@ services:
         protocol: tcp
 
   strat_backend:
-    container_name: strat_backend
+    # container_name: strat_backend
     build: ./code/strat_backend
     image: naailc/strat_backend:latest
     ports:
@@ -33,7 +31,7 @@ services:
         protocol: tcp
 
   round_strength:
-    container_name: round_strength
+    # container_name: round_strength
     build: ./code/round_strength
     image: naailc/round_strength:latest
     ports:
