@@ -9,7 +9,7 @@
     hosts: managers
     roles:
       - docker
-      - swarm_init
+      - swarm-init
   - name: Add workers to swarm
     become: true
     hosts: workers

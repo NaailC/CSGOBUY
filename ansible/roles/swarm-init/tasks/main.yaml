@@ -5,9 +5,9 @@
     shell: /bin/bash
     append: true
 
-- name: Init a new swarm 
+- name: Init a new swarm with default parameters
   community.general.docker_swarm:
-    state:  present
+    state: present
     
 - name: Get the worker node join token
   community.general.docker_swarm:
