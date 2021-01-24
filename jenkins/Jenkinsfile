@@ -2,16 +2,16 @@ pipeline{
     agent any
     environment{
         DATABASE_URI = credentials("DATABASE_URI")
-        docker-hub-credentials = credentials("docker-hub-credentials")
+        docker_credentials = credentials("docker-hub-credentials")
         replicas = 10
         app_version = '1.0'
-    //}
-    // stages{
-        //stage("Testing"){
-            //steps{
-                //sh "bash jenkins/script/test.sh"
-                //}
-            //}
+    }
+    stages{
+    stage("Testing"){
+        steps{
+            sh "bash jenkins/script/test.sh"
+        }
+    }
         
         stage("Build & Push"){
             steps{
