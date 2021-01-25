@@ -26,8 +26,8 @@ def get_tstratstrength():
     choice = request.data.decode('utf-8')
     stratstrength = {'Rush A' : 50, 
         'Rush B' : 60,
-        f'Push A at {choice} seconds' : 71,
-        f'Push B at {choice} seconds' : 63}
+        f'Push A at {timea} seconds' : 71,
+        f'Push B at {timeb} seconds' : 63}
     return Response(str(stratstrength[choice]), mimetype='plain/text')
     # Run on current host
 if __name__ == "__main__":
