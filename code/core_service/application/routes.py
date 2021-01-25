@@ -2,9 +2,10 @@ from application import app, db
 from flask import Flask, redirect, url_for, render_template
 import requests
 from requests import get
+from os import getenv
 
 class Buy(db.Model):
-    id = db.Column(db.Integer, primary_key=True, nullable=False)
+    id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True)
     weapon = db.Column(db.String(20), nullable=False)
     strat = db.Column(db.String(50), nullable=False)
     power = db.Column(db.String(20), nullable=False)
