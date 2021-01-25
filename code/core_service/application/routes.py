@@ -26,7 +26,7 @@ def home():
     ))
     db.session.commit()
 
-    show = Buy.query.order_by(desc("id")).limit(5).all()
+    show = Buy.query.order_by(desc("id")).all()
     
     return render_template('home.html', weapon=weapon_response.text, strat=strat_response.text, roundstrength=roundstrength_response.text, show=show)
 
