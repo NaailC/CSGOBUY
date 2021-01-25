@@ -1,0 +1,17 @@
+<h1>CS:GO Buy Generator</h1>
+
+<h2>Refresh to generate a weapon and strategy</h2>
+
+<p>
+Buy {{ weapon }} and {{ strat }}
+<br>
+Your power-level is {{ roundstrength }}%
+</p>
+<br>Last 5 Generates
+
+<p>
+    {% for buy in show %}
+    {{ buy.weapon }} and {{ buy.strat }} - power-level {{ buy.power }}%
+    <br>
+    {% endfor %} 
+</p>

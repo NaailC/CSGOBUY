@@ -3,8 +3,9 @@ import random
 
 app = Flask(__name__)
 
-timea = random.randint(20,105)
-timeb = random.randint(20,105)
+timea = random.randint(20,90)
+timeb = random.randint(40,106)
+
 
 @app.route('/get/strat', methods=['GET'])
 def get_tstrat():
@@ -15,12 +16,7 @@ def get_tstrat():
         '4B',
         'Default']
     choice = random.choice(strat)
-    if choice == timea:
-        return Response(f'Push A at {timea} seconds', mimetype='plain/text')
-    elif choice == timeb:
-        return Response(f'Push B at {timeb} seconds', mimetype='plain/text')
-    else:
-        return Response(f'{choice}', mimetype='plain/text')
+    return Response(f'{choice}', mimetype='plain/text')
 
 @app.route('/post/stratstrength', methods=['POST'])
 def get_tstratstrength():
