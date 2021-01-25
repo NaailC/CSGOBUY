@@ -14,7 +14,12 @@ def get_tstrat():
         timea,
         timeb]
     choice = random.choice(strat)
-    return Response(f'{choice}', mimetype='plain/text')
+    if choice == timea:
+        return Response(f'{choice}', mimetype='plain/text')
+    elif choice == timeb:
+        return Response(f'{choice}', mimetype='plain/text')
+    else:
+        return Response(f'{choice}', mimetype='plain/text')
 
 @app.route('/post/stratstrength', methods=['POST'])
 def get_tstratstrength():
