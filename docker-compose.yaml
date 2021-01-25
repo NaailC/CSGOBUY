@@ -22,6 +22,8 @@ services:
       - target: 5001
         published: 5001
         protocol: tcp
+    deploy:
+      replicas: 10
 
   strat_backend:
     # container_name: strat_backend
@@ -31,6 +33,8 @@ services:
       - target: 5002
         published: 5002
         protocol: tcp
+    deploy:
+      replicas: 10
 
   round_strength:
     # container_name: round_strength1
@@ -40,3 +44,5 @@ services:
       - target: 5003
         published: 5003
         protocol: tcp
+    deploy:
+      replicas: 10
