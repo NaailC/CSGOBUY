@@ -3,12 +3,13 @@ import random
 
 app = Flask(__name__)
 
-timea = random.randint(20,105)
-timeb = random.randint(20,105)
+strength = int(random.randint(35,85))
 
 @app.route('/get/strat', methods=['GET'])
 def get_tstrat():
     
+    timea = random.randint(20,105)
+    timeb = random.randint(20,106)
     strat = ['Rush A',
         'Rush B',
         timea,
@@ -26,8 +27,8 @@ def get_tstratstrength():
     choice = request.data.decode('utf-8')
     stratstrength = {'Rush A' : 50, 
         'Rush B' : 60,
-        f'Push A at {timea} seconds' : 80,
-        f'Push B at {timeb} seconds' : 70}
+        f'Push A at {choice} seconds' : strength,
+        f'Push B at {choice} seconds' : strength}
     return Response(str(stratstrength[choice]), mimetype='plain/text')
     # Run on current host
 if __name__ == "__main__":
