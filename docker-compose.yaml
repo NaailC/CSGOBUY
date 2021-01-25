@@ -26,7 +26,7 @@ services:
       replicas: 10
 
   strat_backend:
-    # container_name: strat_backend
+    # container_name: strat_backendd
     build: ./code/strat_backend
     image: naailc/strat_backend:latest
     ports:
