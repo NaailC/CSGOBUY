@@ -33,11 +33,10 @@ services:
       - target: 5002
         published: 5002
         protocol: tcp
-    deploy:
-      replicas: 10
 
+      
   round_strength:
-    # container_name: round_strength1
+    # container_name: round_strength1ss
     build: ./code/round_strength
     image: naailc/round_strength:latest
     ports:
