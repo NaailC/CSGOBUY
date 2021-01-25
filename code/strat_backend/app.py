@@ -30,6 +30,6 @@ def get_tstratstrength():
         f'Push A at {timea} seconds' : 71,
         f'Push B at {timeb} seconds' : 63}
     return Response(str(stratstrength[choice]), mimetype='plain/text')
-    # Run on current host
+    # Run on current hostt
 if __name__ == "__main__":
     app.run(debug = True, host = "0.0.0.0", port=5002)
