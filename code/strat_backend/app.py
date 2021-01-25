@@ -15,9 +15,9 @@ def get_tstrat():
         timeb]
     choice = random.choice(strat)
     if choice == timea:
-        return Response(f'{choice}', mimetype='plain/text')
+        return Response(f'Push A at {choice} seconds', mimetype='plain/text')
     elif choice == timeb:
-        return Response(f'{choice}', mimetype='plain/text')
+        return Response(f'Push B at {choice} seconds', mimetype='plain/text')
     else:
         return Response(f'{choice}', mimetype='plain/text')
 
