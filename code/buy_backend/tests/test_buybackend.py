@@ -13,21 +13,21 @@ class TestBase(TestCase):
 class TestResponse(TestBase):
     def test_get_buy(self):
         with patch('random.choice') as random:
-            random.return_value = 'AK'
+            random.return_value = '57'
             response = self.client.get(url_for('get_buy'))
             response2 = self.client.post(url_for('get_buystrength'))
-            self.assertIn(b'AK', response.data)
+            self.assertIn(b'57', response.data)
     
     def test_get_buy2(self):
         with patch('random.choice') as random:
-            random.return_value = 'p90'
+            random.return_value = 'Scout'
             response = self.client.get(url_for('get_buy'))
             response2 = self.client.post(url_for('get_buystrength'))
             self.assertEquals(b'p90', response.data)
 
     def test_get_buy3(self):
         with patch('random.choice') as random:
-            random.return_value = 'SG'
+            random.return_value = 'p250'
             response = self.client.get(url_for('get_buy'))
             response2 = self.client.post(url_for('get_buystrength'))
-            self.assertEquals(b'SG', response.data)
+            self.assertEquals(b'p250', response.data)
