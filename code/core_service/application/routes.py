@@ -13,11 +13,11 @@ class Buy(db.Model):
 
 @app.route('/')
 def home():
-    weapon_response = requests.get('http://CSGOBG-stack_buy_backend:5001/get/buy')
-    buystrength_response = requests.post('http://CSGOBG-stack_buy_backend:5001/post/buystrength', data=weapon_response.text)
-    strat_response = requests.get('http://CSGOBG-stack_strat_backend:5002/get/strat')
-    stratstrength_response = requests.post('http://CSGOBG-stack_strat_backend:5002/post/stratstrength', data=strat_response.text)
-    roundstrength_response = requests.post('http://CSGOBG-stack_round_strength:5003/post/roundstrength', json={'buystrength' : buystrength_response.text, 'stratstrength' : stratstrength_response.text})
+    weapon_response = requests.get('http://code-buy_backend:5001/get/buy')
+    buystrength_response = requests.post('http://code-buy_backend:5001/post/buystrength', data=weapon_response.text)
+    strat_response = requests.get('http://code-strat_backend:5002/get/strat')
+    stratstrength_response = requests.post('http://code-strat_backend:5002/post/stratstrength', data=strat_response.text)
+    roundstrength_response = requests.post('http://code-round_strength:5003/post/roundstrength', json={'buystrength' : buystrength_response.text, 'stratstrength' : stratstrength_response.text})
 
     db.session.add(Buy(
         weapon = weapon_response.text, 
