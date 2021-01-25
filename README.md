@@ -93,3 +93,7 @@ There were issues with testing my core-service. Due to the way I designed my app
 ![frontend](docu/front-end.png)
 
 The frontend to my application is a simple jinja2 script that returns a generated object upon refresh and saves it into a database.
+
+## Improvements
+
+Currently my application uses more than one microservice per container. Also, in some modules such as my strategy backend, I was unable to properly deploy replica containers due to the use of global variables. This severly impacted the robust-ness of my continuous deployment, as I was not able to properly persist rolling updates without some issues and downtime. However, if left alone, 
