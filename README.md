@@ -52,3 +52,8 @@ A second implementation has generated an eco-buy and CT strategy
 ## CI Pipeline
 
 The main goal of this project was to create a robust CI pipeline system, capabale of performing rolling updates with little to no downtime. As such, scripting methods were used with jenkins order to test, build and deploy the app. As versions are pushed onto the main hub of my github repository, a webhook automatically triggers, and imports the build to my jenkins server. 
+
+## Testing
+
+There were issues with testing my core-service. Due to the way I designed my apps, there was more than one route operating within each microservice, which made it difficult when using mock tests. 
+
