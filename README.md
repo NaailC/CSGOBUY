@@ -73,7 +73,7 @@ A simple table was used to persist data from my app into a database. This then a
 
 The main goal of this project was to create a robust CI pipeline system, capabale of performing rolling updates with little to no downtime. As such, scripting methods were used with jenkins order to test, build and deploy the app. As versions are pushed onto the main hub of my github repository, a webhook automatically triggers, and imports the build to my jenkins server. Jenkins then automatically runs pytest, pushes generated images to dockerhub, and configures environments using Ansible. Ansible will then deploy the stack to a docker-swarm machine. The user only connects to nginx:80, and never connects to my app architechture which improves security.
 
-![CI-Pipeline](docu/ci_pipline.png)
+![CI-Pipeline](docu/ci_pipeline.png)
 
 My jenkinsfile automatically runs a script which tests, builds and deploys my app.
 
@@ -96,4 +96,15 @@ The frontend to my application is a simple jinja2 script that returns a generate
 
 ## Improvements
 
-Currently my application uses more than one microservice per container. Also, in some modules such as my strategy backend, I was unable to properly deploy replica containers due to the use of global variables. This severly impacted the robust-ness of my continuous deployment, as I was not able to properly persist rolling updates without some issues and downtime. However, if left alone, 
+Currently my application uses more than one microservice per container. Also, in some modules such as my strategy backend, I was unable to properly deploy replica containers due to the use of global variables. This severly impacted the robust-ness of my continuous deployment, as I was not able to properly persist rolling updates without some issues and downtime. However, if left alone, the app will bring up the new build successfuly.
+
+## Author
+
+Naail Choudhury
+
+## Aknowledgements
+
+Harry Volker: Guidance and teaching throughout the course <br>
+Max Pattman: Help troubleshooting issues <br>
+Brenan Kirbky: Help troubleshooting issues <br>
+ 
