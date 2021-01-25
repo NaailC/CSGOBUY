@@ -2,11 +2,11 @@
 
 ## Brief
 
-The DevOps Practical project is designed to fully test and showcase my knowledge from the first half of the DevOps course as well as to showcase my ability to operate as a junior/dev-ops engineer. This project focuses more on the CI pipeline than the complexity of the code.
+The DevOps Practical project is designed to showcase my knowledge from the DevOps fundamental course, as well as my ability to operate as a junior/dev-ops engineer. This project focuses on the CI pipeline in order to test, build and deploy the application automatically.
 
 ## Requirements
 
-The Minumum Viable Product for this project is a fully complete CI/CD pipeline, integrated into a complete version control system utilising the feature/branch model. The application must be built wiht a microstructure architechture, with atleast 4 services being implemented. These are:
+The Minumum Viable Product for this project is a fully complete CI/CD pipeline, integrated into a complete version control system utilising the feature/branch model. The application must be built with a microservice architechture, with at least 4 services. These are:
 
     Service 1: Connect all services persisting data in an SQL database
     Service 2+3: Generate a "random" object 
@@ -107,4 +107,3 @@ Naail Choudhury
 Harry Volker: Guidance and teaching throughout the course <br>
 Max Pattman: Help troubleshooting issues <br>
 Brenan Kirbky: Help troubleshooting issues <br>
- 
