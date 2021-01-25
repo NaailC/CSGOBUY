@@ -31,7 +31,7 @@ Platform Specific
     Cloud server: GCP virtual machines - free, easy to connect
     Containerisation: Docker - open source, easy to use
     Orchestration Tool: Docker Swarm - works well with docker to stack images and deploy
-    Reverse Proxy: NGINX - works well as a load balancer&reverse proxy
+    Reverse Proxy: NGINX - works well with docker swarm as a load balancer&reverse proxy
 
 ## Chosen Idea: Counter Strike Buy Generator 
 
@@ -45,7 +45,7 @@ Service 3 : Generates a strategy, and a strength for a the strategy.
 
 Service 4 : Generates a round strength based on buy and strategy.
 
-A second implementation has generated an eco-buy and CT strategy
+A second implementation has generated an eco-buy weapon and CT strategy
 
 ## Database ED
 
@@ -55,5 +55,5 @@ The main goal of this project was to create a robust CI pipeline system, capabal
 
 ## Testing
 
-There were issues with testing my core-service. Due to the way I designed my apps, there was more than one route operating within each microservice, which made it difficult when using mock tests. 
+There were issues with testing my core-service. Due to the way I designed my apps, there was more than one route operating within each microservice, which made it difficult when using mock tests on the home page. As so, my core service only achieved a coverage of 74%. This has been offset by my other microservices, which have achieved 93%, 90% and 84%. 
 
