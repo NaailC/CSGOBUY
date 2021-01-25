@@ -6,7 +6,6 @@ app = Flask(__name__)
 timea = random.randint(20,90)
 timeb = random.randint(40,106)
 
-
 @app.route('/get/strat', methods=['GET'])
 def get_tstrat():
     
