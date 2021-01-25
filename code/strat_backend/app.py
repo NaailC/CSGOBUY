@@ -14,21 +14,15 @@ def get_tstrat():
         timea,
         timeb]
     choice = random.choice(strat)
-    if choice == timea:
-        return Response(f'Push A at {timea} seconds', mimetype='plain/text')
-    elif choice == timeb:
-        return Response(f'Push B at {timeb} seconds', mimetype='plain/text')
-    else:
-        return Response(f'{choice}', mimetype='plain/text')
+    return Response(f'{choice}', mimetype='plain/text')
 
 @app.route('/post/stratstrength', methods=['POST'])
 def get_tstratstrength():
     choice = request.data.decode('utf-8')
-    stgen = random.randint(35,75)
     stratstrength = {'Rush A' : 50, 
         'Rush B' : 60,
-        f'Push A at {choice} seconds' : stgen,
-        f'Push B at {choice} seconds' : stgen}
+        f'Push A at {choice} seconds' : 71,
+        f'Push B at {choice} seconds' : 63}
     return Response(str(stratstrength[choice]), mimetype='plain/text')
     # Run on current host
 if __name__ == "__main__":

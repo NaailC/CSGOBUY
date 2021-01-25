@@ -11,6 +11,8 @@ services:
       protocol: tcp
     environment:
       DATABASE_URI: ${DATABASE_URI}
+    deploy:
+      replicas: 10
   
   buy_backend:
     # container_name: buy_backend1
