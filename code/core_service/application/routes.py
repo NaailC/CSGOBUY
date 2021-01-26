@@ -28,20 +28,8 @@ def home():
     db.session.commit()
 
     show = Buy.query.order_by(desc("id")).limit(5).all()
-
-    gif = random.choice['HandmadeDiscreteEasternnewt',
-        'veneratedcomposedgrassspider',
-        'shorttermscentedjaeger',
-        'wandangerousirukandjijellyfish',
-        'discretegraciousgallowaycow',
-        'maleregularlangur',
-        'drearyimpurearmyworm',
-        'criminalvengefulkatydid',
-        'occasionalclearcutjellyfish']
-
-    clip = <'iframe src=https://gfycat.com/ifr/'gif 'frameborder='0' scrolling='no' allowfullscreen width='480' height='404'></iframe'>
-    
-    return render_template('home.html', weapon=weapon_response.text, strat=strat_response.text, roundstrength=roundstrength_response.text, show=show, clip=clip)
+  
+    return render_template('home.html', weapon=weapon_response.text, strat=strat_response.text, roundstrength=roundstrength_response.text, show=show, gif=gif)
 
 
 
