@@ -4,7 +4,7 @@ from sqlalchemy import desc
 import requests
 from requests import get
 from os import getenv
-from random import choice
+
 
 class Buy(db.Model):
     id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True)
@@ -38,8 +38,10 @@ def home():
         'drearyimpurearmyworm',
         'criminalvengefulkatydid',
         'occasionalclearcutjellyfish']
+
+    clip = <'iframe src=https://gfycat.com/ifr/'gif 'frameborder='0' scrolling='no' allowfullscreen width='480' height='404'></iframe'>
     
-    return render_template('home.html', weapon=weapon_response.text, strat=strat_response.text, roundstrength=roundstrength_response.text, show=show, gif=gif)
+    return render_template('home.html', weapon=weapon_response.text, strat=strat_response.text, roundstrength=roundstrength_response.text, show=show, clip=clip)
 
 
 
