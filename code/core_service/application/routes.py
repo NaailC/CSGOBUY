@@ -4,6 +4,7 @@ from sqlalchemy import desc
 import requests
 from requests import get
 from os import getenv
+from random import choice
 
 class Buy(db.Model):
     id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True)
@@ -27,8 +28,18 @@ def home():
     db.session.commit()
 
     show = Buy.query.order_by(desc("id")).limit(5).all()
+
+    gif = random.choice['HandmadeDiscreteEasternnewt',
+        'veneratedcomposedgrassspider',
+        'shorttermscentedjaeger',
+        'wandangerousirukandjijellyfish',
+        'discretegraciousgallowaycow',
+        'maleregularlangur',
+        'drearyimpurearmyworm',
+        'criminalvengefulkatydid',
+        'occasionalclearcutjellyfish']
     
-    return render_template('home.html', weapon=weapon_response.text, strat=strat_response.text, roundstrength=roundstrength_response.text, show=show)
+    return render_template('home.html', weapon=weapon_response.text, strat=strat_response.text, roundstrength=roundstrength_response.text, show=show, gif=gif)
 
 
 
